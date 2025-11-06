@@ -1,0 +1,13 @@
+# Node / Build
+node_modules
+.out
+.next
+build
+*.log
+
+# Assets / Output
+/public/preview
+/public/exports
+*.zip
+*.pdf
+

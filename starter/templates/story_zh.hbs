@@ -1,0 +1,26 @@
+{{!-- 儿童故事（中文）10 页模板 --}}
+{{!-- 变量：name, age, traits[], favoriteAnimal, city, theme --}}
+
+{{#*inline "page"}}
+<div class="page">
+  <h1>{{title}}</h1>
+  <p>{{text}}</p>
+  <img src="{{image}}" alt="{{title}}" />
+</div>
+{{/inline}}
+
+{{!-- 封面 --}}
+{{> page title=(concat name " 的奇遇记") text=(concat "来自 " city " 的 " name "，即将与 " favoriteAnimal " 开启一场 " theme " 冒险！") image=coverImage}}
+
+{{!-- 目录/扉页 --}}
+{{> page title="目录" text="第1-9页为故事正文，第10页为亲子互动与延伸活动。" image=tocImage}}
+
+{{!-- 正文页（示例占位，可由程序替换 text/image） --}}
+{{#each pages}}
+  {{> page title=this.title text=this.text image=this.image}}
+{{/each}}
+
+{{!-- 亲子互动页 --}}
+{{> page title="亲子互动" text=(concat "和 " name " 一起讨论：今天学到了什么？下一次你想和 " favoriteAnimal " 去哪里？") image=outroImage}}
+
+---

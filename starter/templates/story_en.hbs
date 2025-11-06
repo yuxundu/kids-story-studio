@@ -1,0 +1,22 @@
+{{!-- Kids Story (English) 10-page template --}}
+{{!-- Vars: name, age, traits[], favoriteAnimal, city, theme --}}
+
+{{#*inline "page"}}
+<div class="page">
+  <h1>{{title}}</h1>
+  <p>{{text}}</p>
+  <img src="{{image}}" alt="{{title}}" />
+</div>
+{{/inline}}
+
+{{> page title=(concat name "'s Adventure") text=(concat name " from " city " is going on a " theme " journey with a " favoriteAnimal "!") image=coverImage}}
+
+{{> page title="Contents" text="Pages 1-9: story, Page 10: activities & reflections." image=tocImage}}
+
+{{#each pages}}
+  {{> page title=this.title text=this.text image=this.image}}
+{{/each}}
+
+{{> page title="Activities" text=(concat "Talk with " name ": What did we learn today? Where will you and the " favoriteAnimal " go next?") image=outroImage}}
+
+---
